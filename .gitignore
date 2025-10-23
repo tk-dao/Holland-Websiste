@@ -23,3 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 public/media/*.mp4
+!public/media/robot_vid_720p.mp4

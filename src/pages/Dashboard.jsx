@@ -124,7 +124,7 @@ export default function Dashboard() {
           <Reveal className="reveal delay-2">
             <div className="rounded-xl p-4 scale-y-85">
               <video
-                src="/media/robot_vid.mp4"
+                src="/media/robot_vid_720p.mp4"
                 autoPlay
                 playsInline
                 loop
