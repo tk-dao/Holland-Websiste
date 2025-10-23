@@ -1,0 +1,128 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+/* @tailwind base;
+@tailwind components; */
+@tailwind utilities;
+
+
+/* Fonts */
+@font-face {
+  font-family: AkiraExtended;
+  src: url(/fonts/akira_expanded/Akira_Extended.otf);
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Outline;
+  src: url(/fonts/just_sans_outline/OutlineExbold.woff);
+}
+
+@font-face {
+  font-family: LemonMilkLight;
+  src: url(/fonts/lemon_milk/LEMONMILK-Light.otf);
+}
+
+@font-face {
+  font-family: LemonMilk;
+  src: url(/fonts/lemon_milk/LEMONMILK-Regular.otf);
+}
+
+.font-display-akira {
+  font-family: "AkiraExtended"
+}
+
+.font-display-outline {
+  font-family: "Outline"
+}
+
+.font-display-lemonlight {
+  font-family: "LemonMilkLight"
+}
+
+.font-display-lemon {
+  font-family: "LemonMilk";
+}
+
+
+/* Outline Text */
+.text-outline {
+  color: transparent;                 /* hollow */
+  -webkit-text-stroke: 10px white;  /* width + color */
+}
+@media (max-width: 640px) {
+  .text-outline { -webkit-text-stroke: 6px #0a0a0a; }
+}
+
+
+
+
+/* Animations */
+
+@layer utilities {
+  .reveal { 
+    opacity: 0; 
+    transform: translateY(16px); 
+    transition: opacity .6s ease, transform .6s ease; 
+  }
+  .reveal.show { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+  .reveal-x{
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    -webkit-clip-path: inset(0 100% 0 0);
+    transition: clip-path .7s ease, -webkit-clip-path .7s ease, opacity .4s ease;
+    will-change: clip-path, opacity;
+  }
+  .reveal-x.show {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    -webkit-clip-path: inset(0 0 0 0);
+  }
+
+  .reveal-y{
+    opacity: 0;
+    clip-path: inset(100% 0 0 0);
+    -webkit-clip-path: inset(100% 0 0 0);
+    transition: clip-path .7s ease, -webkit-clip-path .7s ease, opacity .4s ease;
+    will-change: clip-path, opacity;
+  }
+  .reveal-y.show {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    -webkit-clip-path: inset(0 0 0 0);
+  }
+
+  .delay-1 { transition-delay: .1s; }
+  .delay-2 { transition-delay: .2s; }
+  .delay-3 { transition-delay: .3s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { transition: none; transform: none; }
+    .reveal-x{ transition:none; clip-path: inset(0 0 0 0); -webkit-clip-path: inset(0 0 0 0); opacity:1;}
+    .reveal-y{ transition:none; clip-path: inset(0 0 0 0); -webkit-clip-path: inset(0 0 0 0); opacity:1;}
+  }
+}
+
+.fly {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(80%);
+  transition: transform .6s ease-out, opacity .4s ease;
+}
+
+.show .fly {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay helpers */
+.fly.delay-0 { transition-delay: .0s; }
+.fly.delay-1 { transition-delay: .05s; }
+.fly.delay-2 { transition-delay: .10s; }
+.fly.delay-3 { transition-delay: .15s; }
+.fly.delay-4 { transition-delay: .20s; }
+.fly.delay-5 { transition-delay: .25s; }
+.fly.delay-6 { transition-delay: .30s; }
